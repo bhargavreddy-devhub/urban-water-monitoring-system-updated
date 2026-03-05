@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 25% 97%;
+    --foreground: 210 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 10%;
+
+    --primary: 195 85% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 92%;
+    --secondary-foreground: 210 50% 15%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 15% 45%;
+
+    --accent: 175 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 195 85% 35%;
+
+    --radius: 0.625rem;
+
+    /* Custom tokens */
+    --safe: 145 65% 42%;
+    --safe-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --danger: 0 72% 55%;
+    --danger-foreground: 0 0% 100%;
+
+    --surface-elevated: 0 0% 100%;
+    --header-bg: 210 45% 12%;
+    --header-foreground: 0 0% 95%;
+
+    --sidebar-background: 210 40% 15%;
+    --sidebar-foreground: 210 10% 85%;
+    --sidebar-primary: 195 85% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 22%;
+    --sidebar-accent-foreground: 210 10% 85%;
+    --sidebar-border: 210 30% 25%;
+    --sidebar-ring: 195 85% 45%;
+  }
+
+  .dark {
+    --background: 210 45% 8%;
+    --foreground: 210 10% 92%;
+    --card: 210 40% 12%;
+    --card-foreground: 210 10% 92%;
+    --popover: 210 40% 12%;
+    --popover-foreground: 210 10% 92%;
+    --primary: 195 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 30% 18%;
+    --secondary-foreground: 210 10% 85%;
+    --muted: 210 25% 16%;
+    --muted-foreground: 210 15% 55%;
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 195 85% 45%;
+    --surface-elevated: 210 35% 14%;
+    --header-bg: 210 50% 6%;
+    --header-foreground: 0 0% 95%;
+    --sidebar-background: 210 50% 6%;
+    --sidebar-foreground: 210 10% 85%;
+    --sidebar-primary: 195 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 15%;
+    --sidebar-accent-foreground: 210 10% 85%;
+    --sidebar-border: 210 30% 15%;
+    --sidebar-ring: 195 85% 50%;
+  }
+}
+
+@layer base {
+  /* apply border color using the CSS variable directly to avoid
+     a missing Tailwind utility when using @apply */
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 shadow-sm;
+  }
+  .status-safe {
+    @apply bg-safe text-safe-foreground;
+  }
+  .status-warning {
+    @apply bg-warning text-warning-foreground;
+  }
+  .status-danger {
+    @apply bg-danger text-danger-foreground;
+  }
+}
